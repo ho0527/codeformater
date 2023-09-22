@@ -1,9 +1,8 @@
 import vscode from "vscode"
 
-function activate(context){
-    let disposable=vscode.commands.registerTextEditorCommand("extension.formatcode",function(){
-        // Get active text editor
-        let editor=vscode.window.activeTextEditor;
+export default function main(context){
+    context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.formatcode",function(){
+        let editor=vscode.window.activeTextEditor // Get active text editor
 
         if(editor){
             // Get full content of editor
@@ -15,13 +14,8 @@ function activate(context){
 
             // Update document content
             editor.edit(function(event){
-                event.replace(new vscode.Range(0,0,document.lineCount,0),formatted);
+                event.replace(new vscode.Range(0,0,document.lineCount,0),formatted)
             })
-        }else{
-            return
-        }
-    })
-    context.subscriptions.push(disposable)
+        }else{ return }
+    }))
 }
-
-module.exports={ activate }
