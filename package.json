@@ -1,6 +1,6 @@
 {
     "name": "codeformater",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "",
     "main": "extension.js",
     "scripts": {
@@ -25,7 +25,7 @@
                 "title": "format code",
                 "keybindings": [
                     {
-                        "command": "-extension.formatcode",
+                        "command": "extension.formatcode",
                         "mac": "ctrl+alt+f",
                         "win": "ctrl+alt+f"
                     }
